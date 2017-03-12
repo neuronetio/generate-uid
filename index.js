@@ -70,14 +70,14 @@ var generateuid=(function () {
 
   function randomBlock(cryptoBytes) {
     if(cryptoBytes){
-      let randomNrs = random(4); // 0-255
-      let r1=randomNrs[0].toString(16);
-      let r2=randomNrs[1].toString(16);
-      let r3=randomNrs[2].toString(16);
-      let r4=randomNrs[3].toString(16);
+      var randomNrs = random(4); // 0-255
+      var r1=randomNrs[0].toString(16);
+      var r2=randomNrs[1].toString(16);
+      var r3=randomNrs[2].toString(16);
+      var r4=randomNrs[3].toString(16);
       return r1+r2+r3+r4;
     }else{
-      let rand=Math.floor(Math.random()*Math.pow(256,4)).toString(16);
+      var rand=Math.floor(Math.random()*Math.pow(256,4)).toString(16);
       return pad(rand,8);
     }
   }
