@@ -1,4 +1,4 @@
-let generateuid=(function () {
+var generateuid=(function () {
   'use strict';
 
   let isNode=typeof process != 'undefined' && typeof process.pid == 'number';
