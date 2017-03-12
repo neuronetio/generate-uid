@@ -1,7 +1,7 @@
 var generateuid=(function () {
   'use strict';
 
-  let isNode=typeof process != 'undefined' && typeof process.pid == 'number';
+  var isNode=typeof process != 'undefined' && typeof process.pid == 'number';
 
   if(isNode){
     var crypto = require('crypto');
@@ -89,10 +89,10 @@ var generateuid=(function () {
   }
 
   function _uid(cryptoBytes=false) {
-    let now = Date.now();
-    let timestamp = now;//(now).toString(16);
-    let random = randomBlock(cryptoBytes)+randomBlock(cryptoBytes);
-    let counter = pad(safeCounter().toString(16), 4);
+    var now = Date.now();
+    var timestamp = now;//(now).toString(16);
+    var random = randomBlock(cryptoBytes)+randomBlock(cryptoBytes);
+    var counter = pad(safeCounter().toString(16), 4);
     // 8 is (Math.pow(256, 4)-1).toString(16).length
     // so counter will always be 8 characters long
     return  (timestamp +"-"+ random +"-"+ fingerprint + "-" + counter);
