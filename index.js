@@ -1,7 +1,7 @@
 var generateuid=(function () {
   'use strict';
 
-  var isNode=typeof process != 'undefined' && typeof process.pid == 'number';
+  var isNode=typeof process != 'undefined' && typeof process.pid == 'number' && typeof window == "undefined";
 
   if(isNode){
     var crypto = require('crypto');
