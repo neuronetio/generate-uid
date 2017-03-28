@@ -1,13 +1,13 @@
 {
   "name": "generate-uid",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "generate unique id",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browser":{
-    "crypto":false
+  "browser": {
+    "crypto": false
   },
   "repository": {
     "type": "git",
