@@ -9,24 +9,24 @@ var generateuid=(function () {
 
   function random(count) {
     if (isNode) {
-      return nodeRandom(count)
+      return nodeRandom(count);
     } else {
-      var crypto = window.crypto || window.msCrypto
-      if (!crypto) throw new Error("Your browser does not support window.crypto.")
-      return browserRandom(count)
+      var crypto = window.crypto || window.msCrypto;
+      if (!crypto) throw new Error("Your browser does not support window.crypto.");
+      return browserRandom(count);
     }
   }
 
   function nodeRandom(count) {
     var buf = crypto.randomBytes(count);
-    return [].slice.call(buf)
+    return [].slice.call(buf);
   }
 
   function browserRandom(count) {
-    var nativeArr = new Uint8Array(count)
-    var crypto = window.crypto || window.msCrypto
-    crypto.getRandomValues(nativeArr)
-    return [].slice.call(nativeArr)
+    var nativeArr = new Uint8Array(count);
+    var crypto = window.crypto || window.msCrypto;
+    crypto.getRandomValues(nativeArr);
+    return [].slice.call(nativeArr);
   }
 
   function pad(num, size) {
@@ -88,7 +88,10 @@ var generateuid=(function () {
     return c - 1;
   }
 
-  function _uid(cryptoBytes=false) {
+  function _uid(cryptoBytes) {
+    if(typeof cryptoBytes=="undefined"){
+      cryptoBytes=false;
+    }
     var now = Date.now();
     var timestamp = now;//(now).toString(16);
     var random = randomBlock(cryptoBytes)+randomBlock(cryptoBytes);
